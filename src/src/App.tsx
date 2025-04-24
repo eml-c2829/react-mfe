@@ -47,14 +47,12 @@ const Footer = memo(function Footer(props: FooterProps) {
         Author: {props.author.name},
         Age: {props.author.age},
       </p>
-      <p>
       Favorite Languages: 
       <ul>
         {props.author.favoriteLanguages.map((language, index) => (
           <li key={index}>{index}. {language}</li>
         ))}
       </ul>
-      </p>
     </>
   )
 });
