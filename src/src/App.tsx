@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { memo, useReducer, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -16,14 +16,25 @@ type AuthorDetail = {
 const Footer = memo(function Footer(props: FooterProps) {
   const textColor = 'blue';
 
-  const [status, setStatues] = useState('active');
+  //const [status, setStatues] = useState('active');
+  const reducer = (state: boolean, action: string) => {
+    switch (action) {
+      case 'active':
+        return true;
+      case 'inactive':
+        return false;
+      default:
+        throw new Error();
+    }
+  };
+  const [status, setStatues] = useReducer(reducer, true);
 
   console.log('Footer component is re-rendered');
 
   return (
     <>
       <p>
-        This is footer component. Status is {status}
+        This is footer component. Status is {status ? 'active' : 'inactive'}
       </p>
       <p>
         <button onClick={() => setStatues('inactive')}>Set Inactive</button>
