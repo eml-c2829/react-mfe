@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     federation({
       remotes: {
-        remoteApp: 'http://localhost:5001/assets/remoteEntry.js'
+        remoteApp: 'http://localhost:8881/assets/remoteEntry.js'
       }
     })
   ],
