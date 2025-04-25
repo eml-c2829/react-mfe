@@ -3,7 +3,7 @@ import logo from '../assets/react.svg';
 
 export default function Header() {
     return (
-        <div className="flex justify-between items-center p-4 bg-gray-900">
+        <div className="flex justify-between items-center p-6 bg-primary-color">
             <div className="flex space-x-4 items-center">
                 <img src={logo} alt="Logo" className="h-8 w-8" />
                 <span className="text-white">

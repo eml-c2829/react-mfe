@@ -1,7 +1,51 @@
+import NavigationGroup, { NavigationGroupData } from "./navigation-group";
+
+
 export default function LeftSidePanel() {
+    const navigationData: NavigationGroupData[] = [
+        {
+            name: 'User Lifecycle',
+            items: [
+                {
+                    name: 'User List',
+                    url: 'user-list'
+                },
+                {
+                    name: 'Invite User',
+                    url: 'invite-user'
+                },
+                {
+                    name: 'User Management',
+                    url: 'user-management'
+                },
+                {
+                    name: 'Sync History',
+                    url: 'sync-history'
+                },
+            ]
+        },
+        {
+            name: 'Access Policies',
+            items: [
+                {
+                    name: 'Policy List',
+                    url: 'policy-list'
+                },
+                {
+                    name: 'Sync Policy',
+                    url: 'sync-policy'
+                },
+            ]
+        }
+    ];    
+    
     return (
-        <>
-            fdsfd
-        </>
+        <div className="w-full text-left bg-primary-color">
+            {
+                navigationData.map((groupData, index) => (
+                    <NavigationGroup key={index} {...groupData} />
+                ))
+            }
+        </div>
     );
 }
