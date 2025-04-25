@@ -10,6 +10,7 @@ export default defineConfig({
     tailwindcss(),
     federation({
       name: 'remoteApp',
+      filename: 'remoteEntry.js',
       exposes: {
         './RemoteComponent': './src/components/remotecomponent.tsx',
       },
@@ -21,10 +22,10 @@ export default defineConfig({
     cors: true,
     strictPort: true,
   },
+  preview: {
+    port: 8881, // Preview server port
+  },
   build: {
     target: 'esnext',
-    minify: false,
-    cssCodeSplit: false,
-    outDir: 'dist',
   },
 })
