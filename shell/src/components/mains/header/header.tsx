@@ -1,9 +1,12 @@
 import './header.css';
 import logo from '../../../assets/react.svg';
-import { logout } from '../../../core/states/authentication-slice';
-import { useDispatch } from 'react-redux';
+import { logout } from '../../../core/states/authentication-slices/authentication-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../core/states/state-store';
 
 export default function Header() {
+    const userRole = useSelector((state: RootState) => state.auth.role);
+    const userName = useSelector((state: RootState) => state.auth.username);
     const dispatch = useDispatch();
 
     return (
@@ -20,7 +23,7 @@ export default function Header() {
                     <span className="text-white">Settings</span>
                 </button>
                 <div className="flex bg-gray-600 items-center space-x-4 p-3 rounded-2xl">
-                    <span>John Smith (GAC-Admin)</span>
+                    <span>{userName} ({userRole ?? 'Unknown'})</span>
                     <button className="w-10 h-6 rounded-4xl bg-blue-400"
                         onClick={() => dispatch(logout())}>Exit</button>
                 </div>

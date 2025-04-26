@@ -1,16 +1,30 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../core/states/authentication-slice';
+import { login } from '../../core/states/authentication-slices/authentication-slice';
 
-const allowedUsers = ['van', 'john', 'sara'];
+const allowedUsers = [
+  {
+    username: 'admin',
+    role: 'Administrator'
+  },
+  {
+    username: 'user',
+    role: 'Normal user'
+  }
+]
 
 export default function UnAuthenticatedLayout() {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    if (allowedUsers.includes(username.toLowerCase())) {
-      dispatch(login(username));
+    const user =
+      allowedUsers
+        .filter((user) => user.username.toLowerCase() == username.toLowerCase())
+        .pop();
+    
+    if (user) {
+      dispatch(login({ username: user.username, role: user.role }));
     } else {
       alert('Invalid username');
     }
