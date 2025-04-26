@@ -13,6 +13,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './UserList': './src/components/user-list/user-list.tsx',
+        './InviteUser': './src/components/invite-user/invite-user.tsx',
       },
       shared: ['react', 'react-dom'],
     }),

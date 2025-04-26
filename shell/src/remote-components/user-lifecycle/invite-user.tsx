@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 
-const UserListComponent = React.lazy(() => import('userLifecycle/UserList'));
+const InviteUserComponent = React.lazy(() => import('userLifecycle/InviteUser'));
 
-const UserList = () => {
+const InviteUser = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const UserList = () => {
 
     const root = createRoot(mountPoint);
     root.render(
-       <UserListComponent />
+       <InviteUserComponent />
     );
 
     return () => {
@@ -25,4 +25,4 @@ const UserList = () => {
   return <div ref={containerRef} />;
 };
 
-export default UserList;
+export default InviteUser;

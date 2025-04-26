@@ -3,8 +3,7 @@ import './App.css';
 import BreadCum from './bread-cum/bread-cum';
 import Header from './header/header';
 import LeftSidePanel from './left-side-panel/left-side-panel';
-import { Suspense } from 'react';
-import RemoteComponentErrorBoundary from './core/remote-component-error-boudary';
+import InviteUser from 'userLifecycle/InviteUser';
 
 function App() {
     return (
@@ -16,12 +15,13 @@ function App() {
                 </div>
                 <div className="w-full pt-2 pl-4">
                     <BreadCum />
-                    <div id="remote-container"className="bg-primary-color w-full">
-                        <Suspense fallback={<div>Loading...</div>}>
-                            <RemoteComponentErrorBoundary>
-                                <UserList />
-                            </RemoteComponentErrorBoundary>
-                        </Suspense>
+                    <div id="remote-container" className="bg-primary-color w-full">
+                        <div>
+                          <UserList />
+                        </div>
+                        <div>
+                          <InviteUser />
+                        </div>
                     </div>
                 </div>
             </div>
