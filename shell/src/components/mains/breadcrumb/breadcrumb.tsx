@@ -1,4 +1,4 @@
-export default function BreadCum() {
+export default function BreadCrumb() {
     return (
         <div className="flex pb-3">
             <span className="">
