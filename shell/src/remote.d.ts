@@ -1,4 +1,4 @@
-declare module 'remoteApp/RemoteComponent' {
+declare module 'userLifecycle/UserList' {
     const Component: React.ComponentType;
     export default Component;
 }

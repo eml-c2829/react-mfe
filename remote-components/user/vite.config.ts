@@ -9,10 +9,10 @@ export default defineConfig({
     react(), 
     tailwindcss(),
     federation({
-      name: 'remoteApp',
+      name: 'userLifecycle',
       filename: 'remoteEntry.js',
       exposes: {
-        './RemoteComponent': './src/components/remotecomponent.tsx',
+        './UserList': './src/components/user-list/user-list.tsx',
       },
       shared: ['react', 'react-dom'],
     }),

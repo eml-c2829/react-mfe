@@ -10,7 +10,11 @@ export default defineConfig({
     tailwindcss(),
     federation({
       remotes: {
-        remoteApp: 'http://localhost:8881/assets/remoteEntry.js'
+        userLifecycle: {
+          external: 'http://localhost:8881/assets/remoteEntry.js',
+          from: 'vite',
+          externalType: 'url'
+        }
       }
     })
   ],
