@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export type NavigationItem = {
     name: string,
     url: string
@@ -9,6 +11,8 @@ export type NavigationGroupData = {
 }
 
 export default function NavigationGroup(data: NavigationGroupData) {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className="bg-cyan-600 p-4 flex justify-between cursor-pointer">
@@ -19,8 +23,12 @@ export default function NavigationGroup(data: NavigationGroupData) {
             <ul>
                 {
                     data.items.map((item, index) => (
-                        <li key={index} className="p-4 bg-primary-color-hover cursor-pointer">
-                            <a href={item.url}> {item.name}</a>
+                        <li 
+                            key={index} 
+                            className="p-4 bg-primary-color-hover cursor-pointer"
+                            onClick={() => navigate(item.url)}
+                        >
+                           {item.name}
                         </li>
                     ))
                 }

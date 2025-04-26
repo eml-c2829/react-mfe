@@ -5,14 +5,15 @@ export default function LeftSidePanel() {
     const navigationData: NavigationGroupData[] = [
         {
             name: 'User Lifecycle',
+            // url: 'user-lifecycle',
             items: [
                 {
                     name: 'User List',
-                    url: 'user-list'
+                    url: 'user-lifecycle/user-list'
                 },
                 {
                     name: 'Invite User',
-                    url: 'invite-user'
+                    url: 'user-lifecycle/invite-user'
                 },
                 {
                     name: 'User Management',
